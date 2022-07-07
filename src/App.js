@@ -1,6 +1,6 @@
 import './App.css';
 import { useState, useEffect } from 'react';
-import { BsTrash, BsBookmarkCheck, BsBookmarkCheckFill } from 'react-icons/bs';
+import { BsTrash, BsBookmarkCheck, BsBookmarkCheckFill } from 'react-icons';
 
 const API = "http://localhost:5000";
 
