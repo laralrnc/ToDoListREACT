@@ -6,6 +6,30 @@ const API = "http://localhost:5000";
 
 
 function App() {
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const todo = {
+      id: Math.random(),
+      title,
+      time,
+      done: false,
+    };
+
+    await fetch(API+ "/todos", {
+      method: "POST",
+      body: JSON.stringify(todo),
+      headers:{
+        "Content-type": "application/json",
+      },
+
+    })
+
+    console.log(todo);
+    setTime("");
+    setTime("");
+  };
+
   const [title, setTitle] = useState("")
   const [time, setTime] = useState("")
   const [todos, setTodos] = useState([])
@@ -16,7 +40,26 @@ function App() {
         <h1>Lista de tarefas</h1>
       </div>
       <div className="form-todo">
-        <p>Formulário</p>
+        <h2>Insira sua nova tarefa</h2>
+        <form onSubmit={handleSubmit}>
+          <div className='form-control'>
+            <label htmlFor='title'>Digite sua tarefa</label>
+            <input type="text" name='title' placeholder='Título da tarefa'
+              onChange={(e) => setTitle(e.target.value)}
+              value={title || ""}
+              required />
+
+          </div>
+          <div className='form-control'>
+            <label htmlFor='time'>Duração</label>
+            <input type="text" name='time' placeholder='Tempo estimado'
+              onChange={(e) => setTime(e.target.value)}
+              value={time || ""}
+              required />
+
+          </div>
+          <input type="submit" value="Criar tarefa" />
+        </form>
       </div>
       <div className="list-todo">
         <h2>Lista de tarefas:</h2>
