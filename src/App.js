@@ -111,7 +111,7 @@ function App() {
         {todos.map((todo) => (
           <div className='todo' key={todo.id}>
             <h3 className={todo.done ? "todo-done" : ""}>{todo.title}</h3>
-            <p>Duração: {todo.time}</p>
+            <p>Duração: {todo.time >1 ? todo.time +" horas" : todo.time + " hora"}</p>
             <div className='actions'>
               <span onClick={() => handleEdit(todo)}>
                 {!todo.done ? <BsBookmarkCheck /> : <BsBookmarkCheckFill />}
